@@ -1,40 +1,28 @@
-# Mini SOC
+# Mini SOC 🛡️
 
-Projeto de estudo desenvolvido em Python com o objetivo de aprender, na prática, conceitos de monitoramento, análise de logs e detecção de eventos de segurança em sistemas Linux.
+Projeto de estudo em Python desenvolvido para monitoramento, análise de logs e detecção de eventos de segurança em sistemas Linux, com foco em automação e engenharia de sistemas.
 
-## Sobre o projeto
+## Sobre o Projeto
 
-A ideia do Mini SOC é acompanhar eventos registrados pelo sistema e, a partir deles, identificar situações que possam indicar algum problema ou atividade suspeita.
+O **Mini-SOC** é uma ferramenta de monitoramento leve desenvolvida em Python que interage diretamente com o subsistema de logs do Linux (`journalctl`). O objetivo principal é analisar tentativas de autenticação em tempo real, aplicando regras de segurança (threshold/limiar) para detectar possíveis ataques de força bruta, além de fornecer um painel visual (*live dashboard*) direto no terminal.
 
-O projeto está sendo desenvolvido aos poucos, conforme novos conceitos de Cibersegurança e programação são estudados.
+## Funcionalidades Atuais
 
-## Status
+* **Monitoramento em Tempo Real (Modo Vigia):** Executa um loop contínuo de varredura com atualização automática de tela (estilo painel de SOC).
+* **Extração Cirúrgica com Regex:** Utiliza expressões regulares (`re`) para varrer logs brutos e extrair com precisão o **alvo** (`user`) e a **origem** (`tty`) da tentativa de acesso.
+* **Regra de Limiar de Alerta (Threshold):** Sistema inteligente que diferencia erros humanos pontuais de múltiplos eventos suspeitos, disparando um alarme apenas quando atinge o limite configurado (3+ falhas) para evitar fadiga de alerta.
+* **Interface CLI Otimizada:** Relatórios estruturados visualmente para facilitar a leitura rápida de eventos críticos.
 
-**Em desenvolvimento**
+## Tecnologias Utilizadas
 
-Atualmente, o projeto consegue:
+* **Linguagem:** Python 3
+* **Sistema Operacional / SO Logs:** Linux (Fedora / Journalctl)
+* **Bibliotecas Python Nativas:** `subprocess`, `re`, `time`, `os`
+* **Controle de Versão:** Git & GitHub
 
-* Coletar logs do sistema Linux usando Python
-* Ler eventos através do `journalctl`
-* Separar os eventos individualmente
-* Fazer uma análise básica dos eventos por meio de palavras-chave
+## Como Executar o Projeto
 
-### Próximos passos
-
-* Detectar tentativas de login malsucedidas
-* Identificar possíveis tentativas de força bruta
-* Criar um sistema de alertas
-* Armazenar os eventos coletados
-* Desenvolver uma interface para visualizar os eventos
-
-## Tecnologias
-
-* Python
-* Linux
-* journalctl
-* Git
-* GitHub
-
-## Objetivo
-
-Usar o projeto como forma de colocar em prática conhecimentos de Python, Linux e Cibersegurança, além de acompanhar minha evolução durante os estudos.
+1. Clone o repositório em sua máquina Linux:
+   ```bash
+   git clone [https://github.com/nuneslabs/Mini-Soc.git](https://github.com/nuneslabs/Mini-Soc.git)
+   cd Mini-Soc
