@@ -1,6 +1,7 @@
 import subprocess
 import re
-
+import time
+import os
 
 def verificar_autenticacao():
     resultado = subprocess.run(
@@ -40,4 +41,7 @@ def verificar_autenticacao():
     else:
         print("\n Status: Sistema seguro. Nenhuma anomalia detectada.")
 
-verificar_autenticacao()
+while True:
+    os.system("clear")
+    verificar_autenticacao()
+    time.sleep(10)
